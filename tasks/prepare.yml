@@ -1,0 +1,21 @@
+---
+
+- name: Create google Cloud App Folder
+  become: False
+  file:
+    path: "{{ gcloud_install_path }}"
+    state: directory
+    mode: 0755
+
+- name: Create a tmp path
+  become: True
+  file:
+    path: "{{ gcloud_tmp_path }}"
+    state: directory
+    mode: 0777
+
+- name: Insure temp path exists
+  become: True
+  file:
+    path: "{{ gcloud_tmp_path }}"
+    state: directory
